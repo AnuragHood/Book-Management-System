@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ProCat - Brand Management</title>
+    <title>BMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css" />
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -57,47 +57,7 @@
             }
         }
     </style>
-    <script>$(document).ready(function() {
-         	$('.menu .item').tab();
-         	$('.ui .dropdown').dropdown();
-         	$('.AAA').click(function() {
-         		$('.ui.modal.result').modal('show');
-         		$('#abc').text("Create Brand")
-         	});
-         	$('.CCC').click(function() {
-         		$('.ui.modal.result').modal('show');
-         		$('#abc').text("Modify Brand")
-         	});
-			$('.BBB').click(function() {
-         		$('.ui.basic.modal').modal('show');
-         	});
-
-$('.toggles').click(function(){
-var test=$(this).closest("tr");
-if (test.hasClass('positive')){
-$(test).removeClass('positive').addClass('negative');
-            }
-	else{
-$(test).removeClass('negative').addClass('positive');
-}
-
-	 });
-
-
-$('#formSubmit').click(function(){
-  $("#loader1").css("display","block");
-  setTimeout(function() {
-  $("#loader1").css("display","none");
-   $('.ui.modal.result').modal('hide');
-   $('#success-msg').css("display","block");
-  }, 2000);
-
-});
-$('.message .close').on('click', function() {
-	$('#success-msg').css("display","none");
-});
-
-         });</script>
+    
 </head>
 <body>
    
