@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ProCat - Brand Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css" />
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.js"></script>
+    <style type="text/css">
+
+        .dropShadow {
+            -webkit-box-shadow: 0px 0px 23px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 0px 23px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 23px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        .ScrollStyle {
+            overflow-y: scroll;
+            height: 300px;
+            width: 40%;
+        }
+
+        #loader1 {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid black;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 0.7s linear infinite;
+            display: none;
+            position: absolute;
+            left: 350px;
+            top: 50;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>$(document).ready(function() {
+         	$('.menu .item').tab();
+         	$('.ui .dropdown').dropdown();
+         	$('.AAA').click(function() {
+         		$('.ui.modal.result').modal('show');
+         		$('#abc').text("Create Brand")
+         	});
+         	$('.CCC').click(function() {
+         		$('.ui.modal.result').modal('show');
+         		$('#abc').text("Modify Brand")
+         	});
+			$('.BBB').click(function() {
+         		$('.ui.basic.modal').modal('show');
+         	});
+
+$('.toggles').click(function(){
+var test=$(this).closest("tr");
+if (test.hasClass('positive')){
+$(test).removeClass('positive').addClass('negative');
+            }
+	else{
+$(test).removeClass('negative').addClass('positive');
+}
+
+	 });
+
+
+$('#formSubmit').click(function(){
+  $("#loader1").css("display","block");
+  setTimeout(function() {
+  $("#loader1").css("display","none");
+   $('.ui.modal.result').modal('hide');
+   $('#success-msg').css("display","block");
+  }, 2000);
+
+});
+$('.message .close').on('click', function() {
+	$('#success-msg').css("display","none");
+});
+
+         });</script>
+</head>
+<body>
+   
+    
+    <div id="spl-topnav" class="ui container dropShadow">
+    </div>
+
+    <div id="spl-topnav" class="ui container dropShadow">
+        <div class="ui attached small message grid">
+            <div class="two column row">
+                <div class="left floated column massive">
+                    <h3>
+                        Welcome User &nbsp;
+                        <i class="circular user icon"></i>
+                    </h3>
+                </div>
+                <div class="right right aligned floated column">
+                   Django Application 
+                </div>
+            </div>
+        </div>
+
+        <div class="ui blue attached stackable inverted  menu">
+           
+        </div>
+        <div class="ui attached message" style="background-color: #ddd;wclassth: 1129px;min-height:430px;">
+            <div class="ui attached message">
+                <div class="header" style="color:blue">LMS-Library Management System</div>
+                <!-- <p>ProCat Application</p> -->
+            </div>
+            <div class="ui attached message" id="success-msg" style="display :none;">
+               
+            </div>
+            <div class="ui attached message">
+                <div class="ui attached message">
+                    <div class="ui stacked segment">
+
+                        <div class="AAA" align="center">
+                            <a class="item" href="{% url 'book_new' %}">
+                                <i class="edit icon"></i> New Pen
+                               
+                            </a>
+
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="pagination-page">
+                        <table class="ui celled table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>View</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for book in object_list %}
+                                <tr>
+                                    <td>{{ book.name }}</td>
+                                    <td>{{ book.price }}</td>
+                                    <td><a href="{% url  'book_view' book.id %}">view</a></td>
+                                    <td><a href="{% url  'book_edit' book.id %}">edit</a></td>
+                                    <td><a href="{% url  'book_delete' book.id %}">delete</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br />
+               
+            </div>
+        </div>
+    </div>
+</body>
+</html>
